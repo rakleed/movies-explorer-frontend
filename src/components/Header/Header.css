@@ -1,0 +1,125 @@
+.header {
+  background-color: #FAFAFA;
+}
+
+.header_dark {
+  background-color: #DDDEE3;
+}
+
+.header__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 18px 30px;
+}
+
+.header__logo-image {
+  display: block;
+  width: 38px;
+  height: 38px;
+  padding-right: 44px;
+  object-fit: contain;
+}
+
+.header__logo-item {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo-wrapper {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header__logo-link {
+  padding-right: 16px;
+  color: #000;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.38;
+  text-decoration: none;
+}
+
+.header__logo-link_active {
+  font-weight: 500;
+}
+
+.header__hamburger-icon {
+  width: 40px;
+  height: 43px;
+  padding: 0;
+  border: none;
+  background-image: url(../../images/hamburger-icon.svg);
+  background-color: unset;
+  cursor: pointer;
+}
+
+.header__auth-wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header__auth-item {
+  display: flex;
+  align-items: center;
+  column-gap: 13px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.14;
+  text-decoration: none;
+}
+
+.header__auth-link {
+  color: #000;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.header__auth-link_type_sign-in {
+  color: #FFF;
+  background-color: #3456F3;
+  padding: 8px 20px;
+  border-radius: 3px;
+}
+
+.header__auth-image {
+  width: 30px;
+  height: 30px;
+  /*padding: 10px;*/
+  border-radius: 6px;
+  background-image: url(../../images/profile-icon.svg);
+  background-repeat: no-repeat;
+  background-color: #F4F4F4;
+  background-position: center;
+}
+
+
+@media screen and (max-width: 425px) {
+  .header__navigation {
+    padding: 15px 14px 16px;
+  }
+
+  .header__auth-wrapper {
+    column-gap: 14px;
+  }
+
+  .header__auth-link {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .header__auth-link_type_sign-in {
+    padding: 5px 12px;
+  }
+}
