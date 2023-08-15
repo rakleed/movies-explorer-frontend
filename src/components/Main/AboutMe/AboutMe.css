@@ -108,6 +108,8 @@
 @media screen and (max-width: 650px) {
   .about-me__container {
     flex-direction: column;
+    row-gap: 40px;
+    padding: 60px 0;
   }
 
   .about-me__description {
@@ -129,11 +131,6 @@
   .about-me__photo {
     width: 100%;
     height: 352px;
-  }
-
-  .about-me__container {
-    row-gap: 40px;
-    padding: 60px 0;
   }
 
   .about-me__name {

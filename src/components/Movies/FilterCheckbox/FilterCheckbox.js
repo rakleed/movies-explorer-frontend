@@ -4,6 +4,7 @@ function FilterCheckbox() {
       <input type="checkbox"
              id="short-films"
              name="short-films"
+             form="search-form"
              defaultChecked={true}
              className="search__checkbox-marker"
       />

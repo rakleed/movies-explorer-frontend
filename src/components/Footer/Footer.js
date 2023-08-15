@@ -8,10 +8,20 @@ function Footer() {
           <nav>
             <ul className="footer__links">
               <li>
-                <a href="https://practicum.yandex.ru/" target="_blank" className="footer__link link">Яндекс.Практикум</a>
+                <a
+                  href="https://practicum.yandex.ru/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="footer__link link"
+                >Яндекс.Практикум</a>
               </li>
               <li>
-                <a href="https://gtihub.com/rakleed" target="_blank" className="footer__link link">GitHub</a>
+                <a
+                  href="https://github.com/rakleed"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="footer__link link"
+                >GitHub</a>
               </li>
             </ul>
           </nav>

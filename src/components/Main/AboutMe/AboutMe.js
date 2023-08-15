@@ -16,7 +16,12 @@ function AboutMe() {
               года работал в&nbsp;компании &laquo;СКБ Контур&raquo;. После того, как прошёл курс
               по&nbsp;веб-разработке, начал заниматься фриланс-заказами и&nbsp;ушёл с&nbsp;постоянной работы.
             </p>
-            <a className="about-me__link link" href="https://github.com/rakleed">GitHub</a>
+            <a
+              className="about-me__link link"
+              href="https://github.com/rakleed"
+              target="_blank"
+              rel="noreferrer"
+            >GitHub</a>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ function MoviesCard({ card }) {
   return(
     <li className="card">
       <img className="card__image" src={'https://api.nomoreparties.co' + card.image.url} alt={`Постер фильма «${card.nameRU}»`} />
-      <a href={card.trailerLink} className="card__trailer" target="_blank" />
+      <a href={card.trailerLink} className="card__trailer" target="_blank" rel="noreferrer" /> {/* TODO: place img inside a */}
       <div className="card__description">
         <div className="card__wrapper">
           <h2 className="card__title">{card.nameRU}</h2>
