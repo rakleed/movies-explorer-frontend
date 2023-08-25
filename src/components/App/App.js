@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { Main } from '../Main/Main';
 import { Movies } from '../Movies/Movies';
 import { SavedMovies } from '../SavedMovies/SavedMovies';
@@ -10,6 +10,7 @@ import { NotFound } from '../NotFound/NotFound';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import * as MainApi from '../../utils/MainApi';
 import { ProtectedRoute } from '../ProtectedRoute/ProtectedRoute';
+import { SHORT_MOVIE_LENGTH } from '../../utils/constants';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(!!localStorage.getItem('token'));
@@ -20,6 +21,7 @@ function App() {
   );
   const [savedMovies, setSavedMovies] = React.useState(JSON.parse(localStorage.getItem('savedMovies')) || []);
   const navigate = useNavigate();
+  const location = useLocation();
 
   React.useEffect(() => {
     const token = localStorage.getItem('token');
@@ -32,6 +34,10 @@ function App() {
       })
         .then(() => {
           setIsLoggedIn(true);
+
+          if (location.pathname === '/signin' || location.pathname === '/signup') {
+            navigate('/movies', { replace: true });
+          }
           // navigate('/', {replace: true});
         })
         .catch(() => {
@@ -126,7 +132,7 @@ function App() {
         item.nameRU.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.nameEN.toLowerCase().includes(searchQuery.toLowerCase());
 
-      return isShortFilm ? item.duration <= 40 && includesQuery : includesQuery;
+      return isShortFilm ? item.duration <= SHORT_MOVIE_LENGTH && includesQuery : includesQuery;
     });
   }
 
@@ -185,11 +191,6 @@ function App() {
           <ProtectedRoute
             element={SavedMovies}
             isLoggedIn={isLoggedIn}
-            searchQuery={searchQuery}
-            isShortFilm={isShortFilm}
-            onSearchFormSubmit={handleSearchFormSubmit}
-            onShortFilmCheckboxChange={handleShortFilmCheckboxChange}
-            filterMovies={filterMovies}
             onCardButtonClick={handleDeleteButtonClick}
             savedMovies={savedMovies}
           />

@@ -55,20 +55,19 @@ function MoviesCardList({ movies, onCardButtonClick, savedMovies }) {
       <section className="cards">
         <div className="cards__wrapper">
           <ul className="cards__list">
-            {
-              movies.slice(0, cardToView).map(movie => {
-                return (
-                  <MoviesCard
-                    key={location.pathname === "/movies" ? movie.id : movie._id}
-                    movieInfo={movie}
-                    onCardButtonClick={onCardButtonClick}
-                    savedMovies={savedMovies}
-                  />
-                )
-              })
+            {movies
+              .slice(0, location.pathname === "/movies" ? cardToView : undefined)
+              .map(movie => (
+                <MoviesCard
+                  key={location.pathname === "/movies" ? movie.id : movie._id}
+                  movieInfo={movie}
+                  onCardButtonClick={onCardButtonClick}
+                  savedMovies={savedMovies}
+                />
+              ))
             }
           </ul>
-          {movies.length > cardToView &&
+          {movies.length > cardToView && location.pathname === "/movies" &&
             <button className="cards__more button" onClick={handleMoreButtonClick}>Ещё</button>
           }
         </div>
