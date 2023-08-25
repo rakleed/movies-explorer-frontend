@@ -1,5 +1,5 @@
-const BACKEND_BASE_URL = 'http://localhost:3000';
-// const BACKEND_BASE_URL = 'https://api.movies-explorer-rkld.nomoredomains.xyz';
+// const BACKEND_BASE_URL = 'http://localhost:3000';
+const BACKEND_BASE_URL = 'https://api.movies-explorer-rkld.nomoredomains.xyz';
 
 const DESKTOP_VIEW_WIDTH = 1250;
 const TABLET_VIEW_WIDTH = 765;
