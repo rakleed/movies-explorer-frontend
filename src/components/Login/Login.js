@@ -6,11 +6,9 @@ function Login({submitHandler}) {
       name="login"
       title="Рады видеть!"
       button="Войти"
-      isLoginSuggestion={false}
       submitHandler={submitHandler}
     />
   )
 }
-
 
 export { Login };

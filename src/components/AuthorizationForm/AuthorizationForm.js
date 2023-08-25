@@ -1,16 +1,21 @@
 import React from 'react';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import logo from '../../images/logo.svg';
-// import useForm from "../hooks/useForm";
+import { useFormWithValidation } from '../../hooks/useFormValidation';
 
-function AuthorizationForm({ name, title, button, isLoginSuggestion, submitHandler }) {
-  let location = useLocation();
-  const navigate = useNavigate();
-  // const { values, handleChange } = useForm({email: '', password: ''});
+function AuthorizationForm({ name, title, button, submitHandler }) {
+  const [errorMessage, setErrorMessage] = React.useState('');
+  const location = useLocation();
+  const { values, handleChange, errors, isValid} = useFormWithValidation();
 
   function handleSubmit(event) {
+    setErrorMessage('');
     event.preventDefault();
-    // submitHandler(values);
+    submitHandler(values);
+      // .catch((error) => {
+      //   setErrorMessage(error.message);
+      //   console.error(error.response.data.message);
+      // });
   }
 
   return (
@@ -22,8 +27,7 @@ function AuthorizationForm({ name, title, button, isLoginSuggestion, submitHandl
       <form className="authorization-form__form" name={`${name}-form`} onSubmit={handleSubmit}>
         {location.pathname === "/signup" ?
           <>
-            <span className="authorization-form__input-key">Имя</span>
-            <label className="authorization-form__label">
+            <label className="authorization-form__input-label" htmlFor="name">Имя</label>
             <input
               className="authorization-form__input authorization-form__input_title_name"
               type="text"
@@ -31,63 +35,65 @@ function AuthorizationForm({ name, title, button, isLoginSuggestion, submitHandl
               id="authorization-form__name"
               placeholder="Имя"
               autoComplete="given-name"
-              minLength="1"
+              minLength="2"
               maxLength="30"
               required
-              // value={values.name ?? ''}
-              // onChange={handleChange}
+              value={values.name ?? ''}
+              onChange={handleChange}
             />
-            {/* TODO: try to rename input name from `title` to `name` */}
-            </label>
+            <span className="authorization-form__input-error">{errors.name}</span>
           </>
            : ""
         }
-        <span className="authorization-form__input-key">E-mail</span>
-        <label className="authorization-form__label">
-          <input
-            className="authorization-form__input authorization-form__input_title_email"
-            type="email"
-            name="email"
-            id="authorization-form__email"
-            placeholder="Email"
-            autoComplete="email"
-            minLength="6"
-            maxLength="50"
-            required
-            // value={values.email ?? ''}
-            // onChange={handleChange}
-          />
-          {/* TODO: try to rename input name from  ̀title` to `name` */}
-        </label>
-        <span className="authorization-form__input-key">Пароль</span>
-        <label className="authorization-form__label">
-          <input
-            className="authorization-form__input authorization-form__input_title_password"
-            type="password"
-            name="password"
-            id="authorization-form__password"
-            placeholder="Пароль"
-            autoComplete={location.pathname === "/signup" ? "new-password" :
-              location.pathname === "/signin" ? "current-password" : ""
-          }
-            required
-            // value={values.password ?? ''}
-            // onChange={handleChange}
-          />
-        </label>
-        <span className="authorization-form__input-error"></span>
-      </form>
-      <button className="authorization-form__submit-button button" type="submit" onClick={() => navigate("/movies")}>{button}</button>
-      {location.pathname === "/signup" ?
-        <p className="authorization-form__suggestion">
-          Уже зарегистрированы? <Link to="/signin" className="authorization-form__suggestion-link">Войти</Link>
-        </p> :
-        location.pathname === "/signin" ?
+        <label className="authorization-form__input-label" htmlFor="email">E-mail</label>
+        <input
+          className="authorization-form__input authorization-form__input_title_email"
+          type="email"
+          name="email"
+          id="authorization-form__email"
+          placeholder="Email"
+          autoComplete="email"
+          minLength="6"
+          required
+          pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,4}"
+          value={values.email ?? ''}
+          onChange={handleChange}
+        />
+        <span className="authorization-form__input-error">{errors.email}</span>
+
+        <label className="authorization-form__input-label" htmlFor="password">Пароль</label>
+        <input
+          className="authorization-form__input authorization-form__input_title_password"
+          type="password"
+          name="password"
+          id="authorization-form__password"
+          placeholder="Пароль"
+          autoComplete={ location.pathname === "/signup" ? "new-password" :
+            location.pathname === "/signin" ? "current-password" : "" }
+          required
+          value={values.password ?? ''}
+          onChange={handleChange}
+        />
+        <span className="authorization-form__input-error">{errors.password}{errorMessage}</span>
+
+        <button
+          className={`authorization-form__submit-button${location.pathname === "/signin"
+            ? ' authorization-form__submit-button_type_login'
+            : ''
+          } button`}
+          type="submit"
+          disabled={!isValid}
+        >{button}</button>
+        {location.pathname === "/signup" ?
+          <p className="authorization-form__suggestion">
+            Уже зарегистрированы? <Link to="/signin" className="authorization-form__suggestion-link">Войти</Link>
+          </p> :
+          location.pathname === "/signin" &&
           <p className="authorization-form__suggestion">
             Ещё не зарегистрированы? <Link to="/signup" className="authorization-form__suggestion-link link">Регистрация</Link>
-          </p> :
-          ""
-      }
+          </p>
+        }
+      </form>
     </main>
   )
 }

@@ -14,7 +14,7 @@
 
 .authorization-form__title {
   margin: 0;
-  padding: 40px 0 20px;
+  padding: 40px 0;
   font-size: 24px;
   font-weight: 500;
   line-height: normal;
@@ -23,11 +23,10 @@
 .authorization-form__form {
   display: flex;
   flex-direction: column;
-  min-height: 308px;
 }
 
-.authorization-form__input-key {
-  padding: 20px 0 10px;
+.authorization-form__input-label {
+  padding: 0 0 10px;
   color: #A0A0A0;
   font-size: 10px;
   line-height: normal;
@@ -44,17 +43,21 @@
   line-height: normal;
 }
 
+.authorization-form__input:invalid {
+  color: #EE3465;;
+}
+
 .authorization-form__input-error {
-  min-height: 24px;
-  padding: 10px 0;
+  height: 15px;
+  padding: 5px 0 0;
   color: #EE3465;
   font-size: 10px;
-  line-height: normal;
+  line-height: 0.9;
 }
 
 .authorization-form__submit-button {
   width: 100%;
-  margin-top: 47px;
+  margin-top: 71px;
   padding: 14px;
   border: none;
   border-radius: 3px;
@@ -64,6 +67,16 @@
   font-weight: 500;
   line-height: normal;
   cursor: pointer;
+}
+
+.authorization-form__submit-button:disabled {
+  color: #C2C2C2;
+  background-color: #F8F8F8;
+  cursor: default;
+}
+
+.authorization-form__submit-button_type_login {
+  margin-top: 159px;
 }
 
 .authorization-form__suggestion {
@@ -102,7 +115,7 @@
   }
 
   .authorization-form__title {
-    padding: 50px 0 60px;
+    padding: 50px 0 80px;
   }
 
   .authorization-form__form {
@@ -110,7 +123,7 @@
   }
 
   .authorization-form__submit-button {
-    margin-top: 135px;
+    margin-top: 247px;
     font-size: 12px;
     line-height: 1.42;
   }

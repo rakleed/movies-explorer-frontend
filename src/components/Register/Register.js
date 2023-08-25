@@ -6,7 +6,6 @@ function Register({submitHandler}) {
       name="register"
       title="Добро пожаловать!"
       button="Зарегистрироваться"
-      isLoginSuggestion={true}
       submitHandler={submitHandler}
     />
   )

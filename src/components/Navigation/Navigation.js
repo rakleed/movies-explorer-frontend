@@ -1,15 +1,13 @@
-import { NavLink } from 'react-router-dom';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-function Navigation() {
+function Navigation({ isNavigationOpened, handleCloseNavigationClick }) {
   return(
-    <div className="navigation">
+    <section className={`navigation${isNavigationOpened ? " navigation_opened" : ""}`}>
       <div className="navigation__container">
-        <button className="navigation__close-button button" type="button"
-          // onClick={handleLikeClick}
-        />
+        <button className="navigation__close-button button" type="button" onClick={handleCloseNavigationClick} />
         <nav className="navigation__nav">
-          <ul className="navigation__list"> {/*header__logo-wrapper*/}
+          <ul className="navigation__list">
             <li>
               <NavLink
                 to="/"
@@ -28,7 +26,7 @@ function Navigation() {
               <NavLink
                 to="/saved-movies"
                 className={({isActive}) =>
-                  `navigation__link link{isActive ? " navigation__link_active" : ""}`}
+                  `navigation__link link${isActive ? " navigation__link_active" : ""}`}
               >Сохранённые фильмы</NavLink>
             </li>
           </ul>
@@ -38,7 +36,7 @@ function Navigation() {
           </NavLink>
         </nav>
       </div>
-    </div>
+    </section>
   )
 }
 
