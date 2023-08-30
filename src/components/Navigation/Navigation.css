@@ -1,6 +1,14 @@
+@keyframes appearing {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .navigation {
-  /*display: none;*/
-  display: flex;
+  display: none;
   flex-direction: row-reverse;
   position: fixed;
   top: 0;
@@ -9,6 +17,11 @@
   background-color: rgba(0, 0, 0, .3);
   box-sizing: border-box;
   animation: appearing 0.4s;
+  z-index: 1;
+}
+
+.navigation_opened {
+  display: flex;
 }
 
 .navigation__container {
@@ -32,7 +45,6 @@
   border: none;
   background: url(../../images/cross-icon.svg) no-repeat center;
   cursor: pointer;
-  transition: opacity 0.4s, background 0.4s;
 }
 
 .navigation__nav {
@@ -80,14 +92,12 @@
 .navigation__link-image {
   width: 30px;
   height: 30px;
-  /*padding: 10px;*/
   border-radius: 6px;
   background-image: url(../../images/profile-icon.svg);
   background-repeat: no-repeat;
   background-color: #F4F4F4;
   background-position: center;
 }
-
 
 @media screen and (max-width: 425px) {
   .navigation__container {

@@ -36,15 +36,15 @@
   font-weight: 500;
   line-height: normal;
   cursor: pointer;
-  transition: opacity 0.4s;
 }
 
 .cards__not-found {
   margin: 0;
-  padding: 70px 30px;
+  padding: 55px 30px;
   background-color: #FAFAFA;
   text-align: center;
-  font-size: 25px;
+  font-size: 22px;
+  line-height: 1.36;
 }
 
 @media screen and (max-width: 1250px) {
@@ -58,7 +58,6 @@
     padding-bottom: 30px;
   }
 }
-
 
 @media screen and (max-width: 765px) {
   .cards__list {
@@ -79,5 +78,10 @@
     row-gap: 14px;
     margin: 0;
     padding: 40px 0 26px;
+  }
+
+  .cards__not-found {
+    font-size: 18px;
+    line-height: 1.67;
   }
 }

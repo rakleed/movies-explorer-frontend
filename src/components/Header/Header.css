@@ -96,7 +96,6 @@
 .header__auth-image {
   width: 30px;
   height: 30px;
-  /*padding: 10px;*/
   border-radius: 6px;
   background-image: url(../../images/profile-icon.svg);
   background-repeat: no-repeat;
