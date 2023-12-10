@@ -58,7 +58,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
 # Dependency directories
 node_modules/
 jspm_packages/
@@ -92,7 +91,6 @@ lerna-debug.log
 # System Files
 .DS_Store
 Thumbs.db
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # testing
 /coverage

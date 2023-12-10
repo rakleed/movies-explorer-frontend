@@ -1,7 +1,17 @@
 # movies-explorer-frontend
 
-Сайт: https://movies-explorer-rkld.nomoredomains.xyz/
+https://movies-explorer-frontend-rakleed.vercel.app/
 
-Макет: https://www.icloud.com/iclouddrive/0c21t1clyPCIi0Y5wHNZQCllw
+Сервис, в котором можно найти фильмы по запросу и сохранить в личном кабинете.
+Также есть регистрация и авторизацию в аккаунте с валидацией полей.
+Фронтенд написан на React.
 
-PR: https://github.com/rakleed/movies-explorer-frontend/pull/2
+## Как локально запустить проект
+
+1. Установить зависимости `npm install`
+2. В `src/utils/constants.js` раскомментировать первую строку (при деплое указать нужный адрес бэкенда)
+2. Запустить проект `npm run start` (при деплое собрать проект `npm run build`)
+
+## Планы по доработке проекта
+
+Настроить CI/CD для автоматического деплоя на сервер.
